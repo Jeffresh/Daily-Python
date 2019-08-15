@@ -5,6 +5,7 @@ class Coche():
         self.__anchoChasis = 120
         self.__ruedas = 4
         self.__enmarcha = False
+        self.__velocidad = 0;
 
     def arrancar(self, arrancar):
         self.__enmarcha = arrancar
@@ -17,6 +18,29 @@ class Coche():
             print("No podemos arrancar, chequeo incorrecto.")
         else:
             print("Se ha parado el coche.")
+
+    def acelerar(self):
+        if self.__enmarcha:
+            self.__velocidad += 1
+        else:
+            print("El coche no está en marcha, arránquelo primero.")
+
+    def frenar(self):
+        if self.__enmarcha:
+            self.__velocidad -= 1
+        else:
+            print("El coche ya está parado.")
+
+    def girar(self, direccion):
+
+        if direccion == "derecha":
+            print("Girando a la derecha.")
+        if direccion == "izquierda":
+            print("Girando a la derecha.")
+
+
+
+
 
     def estado(self):
         print("El coche tiene un largo de {} cm \n un ancho de {} cm \n tiene {} ruedas \n".format(
