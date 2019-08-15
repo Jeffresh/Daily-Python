@@ -43,12 +43,38 @@ class Vehiculo():
         else:
             print('dirección incorrecta pruebe [recto, derecha, izquierda, marcha atras]')
 
-
-
     def estado(self):
         print("Marca: {} \nModelo: {}\nArrancado: {} \nAcelerando: {} \nFrenando: {} "
               .format(self.marca, self.modelo, self.arrancar(), self.acelera, self.frena))
 
+
+class Furgoneta(Vehiculo):
+
+    def cargar(self, carga):
+
+        self.cargado = carga
+
+        if self.cargado:
+            return "La furgoneta está cargada"
+        else:
+            return "La furgoneta no está cargada"
+
+
+
+class VehiculoElectrico():
+    AUTONOMIA_MAX = 320
+
+    def __init__(self):
+        self.autonomia = VehiculoElectrico.AUTONOMIA_MAX
+
+    def repostar(self):
+        self.cargando = True
+        self.autonomia = 320
+
+
+#herencia múltiple
+class BiciletaElectrica(Vehiculo,VehiculoElectrico):
+    pass
 
 class Moto(Vehiculo):
     pass
