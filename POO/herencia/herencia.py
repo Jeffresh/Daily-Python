@@ -73,13 +73,47 @@ class VehiculoElectrico():
 
 
 #herencia múltiple
-class BiciletaElectrica(Vehiculo,VehiculoElectrico):
+class BiciletaElectrica(VehiculoElectrico, Vehiculo):
     pass
 
 class Moto(Vehiculo):
     pass
 
 
-moto = Moto("Harley Davidson", "Sportster")
+# moto = Moto("Harley Davidson", "Sportster")
+#
+# moto.estado()
 
-moto.estado()
+
+# Ejemplo de herencia y método super.
+class Persona:
+
+    def __init__(self, nombre, edad, residencia):
+        self.nombre = nombre
+        self.edad = edad
+        self.residencia = residencia
+
+
+    def estado(self):
+        print("Nombre: {} \nEdad: {} \nResidencia: {}".format(self.nombre, self.edad, self.residencia))
+
+
+class Empleado(Persona):
+
+    def __init__(self, empresa, salario, antiguedad, nombre_empleado, edad_empleado, residencia_empleado):
+        self.empresa = empresa
+        self.salario = salario
+        self.antiguedad = antiguedad
+
+        super.__init__(nombre_empleado, edad_empleado, residencia_empleado)
+
+    def estado(self):
+        super().estado()
+        print("Empresa: {} \nSalario: {} \nResidencia: {}".format(self.empresa, self.salario, self.residencia))
+
+
+
+
+
+
+
