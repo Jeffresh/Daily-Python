@@ -60,21 +60,22 @@ class Furgoneta(Vehiculo):
             return "La furgoneta no está cargada"
 
 
-
-class VehiculoElectrico():
+class VehiculoElectrico(Vehiculo):
     AUTONOMIA_MAX = 320
 
-    def __init__(self):
+    def __init__(self, marca, modelo):
         self.autonomia = VehiculoElectrico.AUTONOMIA_MAX
+        super().__init__(marca,modelo)
 
     def repostar(self):
         self.cargando = True
         self.autonomia = 320
 
 
-#herencia múltiple
-class BiciletaElectrica(VehiculoElectrico, Vehiculo):
+# herencia múltiple
+class BiciletaElectrica(VehiculoElectrico):
     pass
+
 
 class Moto(Vehiculo):
     pass
@@ -93,27 +94,30 @@ class Persona:
         self.edad = edad
         self.residencia = residencia
 
-
     def estado(self):
         print("Nombre: {} \nEdad: {} \nResidencia: {}".format(self.nombre, self.edad, self.residencia))
 
 
 class Empleado(Persona):
 
-    def __init__(self, empresa, salario, antiguedad, nombre_empleado, edad_empleado, residencia_empleado):
+    def __init__(self, nombre_empleado, edad_empleado, residencia_empleado, empresa, salario, antiguedad):
         self.empresa = empresa
         self.salario = salario
         self.antiguedad = antiguedad
-
-        super.__init__(nombre_empleado, edad_empleado, residencia_empleado)
+        super().__init__(nombre_empleado, edad_empleado, residencia_empleado)
 
     def estado(self):
         super().estado()
-        print("Empresa: {} \nSalario: {} \nResidencia: {}".format(self.empresa, self.salario, self.residencia))
+        print("Empresa: {} \nSalario: {} \nAntiguedad: {}".format(self.empresa, self.salario, self.antiguedad))
 
 
+Jose = Empleado("Jose", 18, "Francia", "Telefónica", 20000, 5)
+Firulais = Persona("Firulais", 60, "México")
 
+Jose.estado()
 
+print("Es jose de la clase Empleado? ",isinstance(Jose, Empleado))
+print("Es jose de la clase Persona ? ",isinstance(Jose, Persona))
 
-
-
+print("Es Firulais de la clase Persona ? ",isinstance(Firulais, Persona))
+print("Es Firulais de la clase Empleado ? ",isinstance(Firulais, Empleado))
