@@ -1,3 +1,7 @@
+# Task
+# Given an array, , of integers, calculate the
+# respective first quartile (), second quartile (), and third quartile (). It is guaranteed that , , and are integers.
+
 def quartiles(data):
     data.sort()
     size = len(l)
