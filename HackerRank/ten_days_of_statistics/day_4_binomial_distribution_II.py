@@ -8,12 +8,12 @@
 from math import factorial
 
 
-def combination(n, k):
-    return factorial(n) / factorial(k) / factorial(n - k)
+def combination(n, x):
+    return factorial(n) / factorial(x) / factorial(n - x)
 
 
-def binomial(n, k, p):
-    return combination(n, k) * pow(p, k) * pow(1 - p, n - k)
+def binomial(x, n, p):
+    return combination(n, x) * pow(p, x) * pow(1 - p, n - x)
 
 
 if __name__ == "__main__":
