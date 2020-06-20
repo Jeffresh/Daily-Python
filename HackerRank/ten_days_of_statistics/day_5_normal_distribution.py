@@ -14,7 +14,7 @@ def normal_distribution(mean, std, x):
 
 
 def cumulative_probability_normal_distribution(mean, std, x):
-    return (1 + erf((x - mean) / (std * sqrt(2))))/2
+    return (1 + erf((x - mean) / (std * sqrt(2)))) / 2
 
 
 if __name__ == '__main__':
@@ -26,9 +26,8 @@ if __name__ == '__main__':
     p_lt = cumulative_probability_normal_distribution(normal_mean, normal_std, value)
     print('{0:.03f}'.format(p_lt))
 
-    #P between 20 22
+    # P between 20 22
     p_range_a = cumulative_probability_normal_distribution(normal_mean, normal_std, range_a)
     p_range_b = cumulative_probability_normal_distribution(normal_mean, normal_std, range_b)
     p_range = p_range_b - p_range_a
     print('{0:.03f}'.format(p_range))
-
