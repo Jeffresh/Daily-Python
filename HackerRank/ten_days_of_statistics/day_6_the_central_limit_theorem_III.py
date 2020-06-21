@@ -22,7 +22,7 @@ if __name__ == '__main__':
     sample_mean = mean
     sample_deviation = std / sqrt_n
 
-    # prediction invervals using z value (standard score) of a distribution of the sample mean
+    # prediction intervals using z value (standard score) of a distribution of the sample mean
 
     pl = sample_mean - sample_deviation * z
     pr = sample_mean + sample_deviation * z
