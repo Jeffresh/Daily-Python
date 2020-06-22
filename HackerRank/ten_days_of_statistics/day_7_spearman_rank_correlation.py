@@ -14,18 +14,6 @@
 from math import sqrt
 
 
-def rank(data):
-    rx = [sorted(x).index(x) for x in data]
-    return rx
-
-
-def has_duplicates(data):
-    for x in data:
-        if data.count(x) > 1:
-            return True
-    return False
-
-
 def mean(data, size):
     return sum(data) / size
 
@@ -42,18 +30,21 @@ def covariance(dataset_x, dataset_y, mean_x, mean_y):
     return covariance_value
 
 
-def pearson_correlation_coefficient(data_x, data_y):
-    size_x = len(data_x)
-    size_y = len(data_y)
-    mean_x = mean(data_x, size_x)
-    mean_y = mean(data_y, size_y)
-    std_x = std(data_x, mean_x, size_x)
-    std_y = std(data_y, mean_y, size_y)
+def pearson_correlation_coefficient(dataset_x, dataset_y):
+    n = len(dataset_x)
+    mean_x = round(mean(dataset_x, size_datasets), 2)
+    mean_y = round(mean(dataset_y, size_datasets), 2)
+    std_x = std(dataset_x, mean_x, size_datasets)
+    std_y = std(dataset_y, mean_y, size_datasets)
 
-    covariance_value = covariance(data_x, data_y, mean_x, mean_y)
-
-    return covariance_value / (size_y * std_x * std_y)
+    covariance_value = covariance(dataset_x, dataset_y, mean_x, mean_y)
+    return covariance_value / (n * std_x * std_y)
 
 
 if __name__ == '__main__':
-    pass
+    size_datasets = float(input())
+    dataset_x = list(map(float, input().split()))
+    dataset_y = list(map(float, input().split()))
+
+    pearson_correlation_coefficient_value = pearson_correlation_coefficient(dataset_x, dataset_y)
+    print(round(pearson_correlation_coefficient_value, 3))

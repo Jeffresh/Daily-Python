@@ -17,7 +17,14 @@ def covariance(dataset_x, dataset_y, mean_x, mean_y):
     return covariance_value
 
 
-def pearson_correlation_coefficient(covariance_value, std_x, std_y, n):
+def pearson_correlation_coefficient(dataset_x, dataset_y):
+    n = len(dataset_x)
+    mean_x = round(mean(dataset_x, size_datasets), 2)
+    mean_y = round(mean(dataset_y, size_datasets), 2)
+    std_x = std(dataset_x, mean_x, size_datasets)
+    std_y = std(dataset_y, mean_y, size_datasets)
+
+    covariance_value = covariance(dataset_x, dataset_y, mean_x, mean_y)
     return covariance_value / (n * std_x * std_y)
 
 
@@ -26,11 +33,5 @@ if __name__ == '__main__':
     dataset_x = list(map(float, input().split()))
     dataset_y = list(map(float, input().split()))
 
-    mean_x = round(mean(dataset_x, size_datasets), 2)
-    mean_y = round(mean(dataset_y, size_datasets), 2)
-    std_x = std(dataset_x, mean_x, size_datasets)
-    std_y = std(dataset_y, mean_y, size_datasets)
-
-    covariance_value = covariance(dataset_x, dataset_y, mean_x, mean_y)
-    pearson_correlation_coefficient_value = pearson_correlation_coefficient(covariance_value, std_x, std_y, size_datasets)
+    pearson_correlation_coefficient_value = pearson_correlation_coefficient(dataset_x, dataset_y)
     print(round(pearson_correlation_coefficient_value, 3))
