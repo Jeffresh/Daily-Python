@@ -21,7 +21,7 @@ def rank(data):
 
 def has_duplicates(data):
     for x in data:
-        if (data.count(x) > 1):
+        if data.count(x) > 1:
             return True
     return False
 
@@ -42,8 +42,17 @@ def covariance(dataset_x, dataset_y, mean_x, mean_y):
     return covariance_value
 
 
-def pearson_correlation_coefficient(covariance_value, std_x, std_y, n):
-    return covariance_value / (n * std_x * std_y)
+def pearson_correlation_coefficient(data_x, data_y):
+    size_x = len(data_x)
+    size_y = len(data_y)
+    mean_x = mean(data_x, size_x)
+    mean_y = mean(data_y, size_y)
+    std_x = std(data_x, mean_x, size_x)
+    std_y = std(data_y, mean_y, size_y)
+
+    covariance_value = covariance(data_x, data_y, mean_x, mean_y)
+
+    return covariance_value / (size_y * std_x * std_y)
 
 
 if __name__ == '__main__':
