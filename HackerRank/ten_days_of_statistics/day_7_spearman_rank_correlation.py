@@ -11,6 +11,9 @@
 # rank is equal of the order on the list.
 # Special case if X and Y dont contain duplicates then rs = 1- (6 * sum(rankxi - rankxj))/(n*n^2 -1)
 
+from math import sqrt
+
+
 def rank(data):
     rx = [sorted(x).index(x) for x in data]
     return rx
@@ -21,6 +24,26 @@ def has_duplicates(data):
         if (data.count(x) > 1):
             return True
     return False
+
+
+def mean(data, size):
+    return sum(data) / size
+
+
+def std(data, mean, size):
+    square_distances = [(x - mean) ** 2 for x in data]
+    variance = sum(square_distances) / size
+    std = sqrt(variance)
+    return std
+
+
+def covariance(dataset_x, dataset_y, mean_x, mean_y):
+    covariance_value = sum([(i - mean_x) * (j - mean_y) for i, j in zip(dataset_x, dataset_y)])
+    return covariance_value
+
+
+def pearson_correlation_coefficient(covariance_value, std_x, std_y, n):
+    return covariance_value / (n * std_x * std_y)
 
 
 if __name__ == '__main__':
