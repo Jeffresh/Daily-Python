@@ -15,3 +15,13 @@ def rank(data):
     rx = [sorted(x).index(x) for x in data]
     return rx
 
+
+def has_duplicates(data):
+    for x in data:
+        if (data.count(x) > 1):
+            return True
+    return False
+
+
+if __name__ == '__main__':
+    pass
