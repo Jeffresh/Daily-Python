@@ -14,6 +14,18 @@
 from math import sqrt
 
 
+def rank(data):
+    rx = [sorted(data).index(x) for x in data]
+    return rx
+
+
+def has_duplicates(data):
+    for x in data:
+        if data.count(x) > 1:
+            return True
+    return False
+
+
 def mean(data, size):
     return sum(data) / size
 
@@ -41,10 +53,31 @@ def pearson_correlation_coefficient(dataset_x, dataset_y):
     return covariance_value / (n * std_x * std_y)
 
 
+def spearman_rank_correlation_coefficient(dataset_x, dataset_y):
+    sprcc = pearson_correlation_coefficient(rank_x, rank_y)
+
+    return sprcc
+
+
+def spearman_rank_correlation_coefficient_no_duplicates(rank_x, rank_y):
+    n = len(rank_x)
+    diff_sum = sum([(x - y) ** 2 for x, y in zip(rank_x, rank_y)])
+    sprcc = 1 - ((6 * diff_sum) / (n * (n ** 2 - 1)))
+    return sprcc
+
+
 if __name__ == '__main__':
     size_datasets = float(input())
     dataset_x = list(map(float, input().split()))
     dataset_y = list(map(float, input().split()))
 
-    pearson_correlation_coefficient_value = pearson_correlation_coefficient(dataset_x, dataset_y)
-    print(round(pearson_correlation_coefficient_value, 3))
+    rank_x = rank(dataset_x)
+    rank_y = rank(dataset_y)
+
+    if has_duplicates(dataset_x) or has_duplicates(dataset_y):
+        sprcc = spearman_rank_correlation_coefficient(rank_x, rank_y)
+        print(round(sprcc, 3))
+    else:
+        sprcc = spearman_rank_correlation_coefficient_no_duplicates(rank_x, rank_y)
+
+    print(sprcc)
