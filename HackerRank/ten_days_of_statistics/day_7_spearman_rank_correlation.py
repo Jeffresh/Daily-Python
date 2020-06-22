@@ -11,3 +11,7 @@
 # rank is equal of the order on the list.
 # Special case if X and Y dont contain duplicates then rs = 1- (6 * sum(rankxi - rankxj))/(n*n^2 -1)
 
+def rank(data):
+    rx = [sorted(x).index(x) for x in data]
+    return rx
+
