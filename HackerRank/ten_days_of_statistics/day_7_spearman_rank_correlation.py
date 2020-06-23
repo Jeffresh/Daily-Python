@@ -44,16 +44,16 @@ def covariance(dataset_x, dataset_y, mean_x, mean_y):
 
 def pearson_correlation_coefficient(dataset_x, dataset_y):
     n = len(dataset_x)
-    mean_x = round(mean(dataset_x, size_datasets), 2)
-    mean_y = round(mean(dataset_y, size_datasets), 2)
-    std_x = std(dataset_x, mean_x, size_datasets)
-    std_y = std(dataset_y, mean_y, size_datasets)
+    mean_x = round(mean(dataset_x, n), 2)
+    mean_y = round(mean(dataset_y, n), 2)
+    std_x = std(dataset_x, mean_x, n)
+    std_y = std(dataset_y, mean_y, n)
 
     covariance_value = covariance(dataset_x, dataset_y, mean_x, mean_y)
     return covariance_value / (n * std_x * std_y)
 
 
-def spearman_rank_correlation_coefficient(dataset_x, dataset_y):
+def spearman_rank_correlation_coefficient(rank_x, rank_y):
     sprcc = pearson_correlation_coefficient(rank_x, rank_y)
 
     return sprcc
