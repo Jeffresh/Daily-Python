@@ -111,6 +111,8 @@ class Empleado(Persona):
         print("Empresa: {} \nSalario: {} \nAntiguedad: {}".format(self.empresa, self.salario, self.antiguedad))
 
 
+
+
 Jose = Empleado("Jose", 18, "Francia", "Telefónica", 20000, 5)
 Firulais = Persona("Firulais", 60, "México")
 
