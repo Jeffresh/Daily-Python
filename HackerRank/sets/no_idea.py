@@ -5,12 +5,19 @@
 #
 # Note: Since A and B and are sets, they have no repeated elements. However, the array might contain duplicate elements.
 
+def happiness(array, set_a, set_b):
+    happiness_ = sum((x in set_a) - (x in set_b) for x in array)
+    print(happiness_)
+
+
 if __name__ == '__main__':
     size_array, size_sets = map(int, ['2', '3'])
     array = list(map(int, ['1', '5', '3']))
     set_a = set(map(int, ['3', '1']))
     set_b = set(map(int, ['5', '7']))
 
-    happiness = [1 for x in array if x in set_a]
+    happiness_ = [1 for x in array if x in set_a]
     not_happiness = [-1 for x in array if x in set_b]
-    print(sum(happiness + not_happiness))
+    print(sum(happiness_ + not_happiness))
+
+    happiness(array, set_a, set_b)
