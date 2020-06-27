@@ -14,4 +14,4 @@ if __name__ == '__main__':
     b_size = int(input())
     set_b = set(map(int, input().split()))
 
-    print(len(set_a.difference(set_b)))
+    print(len(set_a.difference(set_b) | set_b.difference(set_a)))
