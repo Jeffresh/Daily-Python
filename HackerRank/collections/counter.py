@@ -17,7 +17,7 @@ if __name__ == '__main__':
     earning = 0
     for _ in range(customer_number):
         size, cost = map(int, input().split())
-        if size in counter_shoes and counter_shoes[size] > 0:
+        if size in counter_shoes and counter_shoes[size]:
             earning += cost
             counter_shoes[size] -= 1
 
