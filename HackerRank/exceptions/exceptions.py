@@ -17,3 +17,4 @@ if __name__ == '__main__':
             print(a // b)
         except (ZeroDivisionError, ValueError) as error:
             print("Error Code:", error)
+
