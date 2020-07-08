@@ -8,5 +8,5 @@ import re
 
 if __name__ == '__main__':
     string = input()
-    m = re.search(r'(\w)\1', string)
+    m = re.search(r'([a-z0-9])\1', string)
     print(m.group(1))
