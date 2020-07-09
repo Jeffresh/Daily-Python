@@ -18,5 +18,5 @@ if __name__ == '__main__':
     for m in re.finditer(r'(?=(' + k + '))', S):
         found = True
         print((m.start(1), m.end(1) - 1))
-    if found:
+    if not found:
         print((-1, -1))
