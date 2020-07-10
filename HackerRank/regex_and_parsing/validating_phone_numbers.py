@@ -13,7 +13,7 @@ import re
 
 if __name__ == '__main__':
     phone_numbers = int(input())
-    regex = '^[789]\d{9}'
+    regex = '^[789]\d{9}$'
 
     for _ in range(phone_numbers):
         number = input()
