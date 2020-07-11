@@ -33,14 +33,18 @@ from html.parser import HTMLParser
 class MyHTMLParser(HTMLParser):
     def handle_starttag(self, tag, attrs):
         print("Start :", tag)
-        if attrs:
-            [print('->', attr, '>', val) for attr, val, in attrs]
+        self.handle_attrs((attrs))
 
     def handle_endtag(self, tag):
         print("End   :", tag)
 
     def handle_startendtag(self, tag, attrs):
         print("Empty :", tag)
+        self.handle_attrs(attrs)
+
+    def handle_attrs(self, attrs):
+        if attrs:
+            [print('-> {} > {}'.format(*attr)) for attr in attrs]
 
 
 if __name__ == '__main__':
