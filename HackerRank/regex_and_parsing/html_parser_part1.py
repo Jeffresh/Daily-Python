@@ -33,7 +33,7 @@ from html.parser import HTMLParser
 class MyHTMLParser(HTMLParser):
     def handle_starttag(self, tag, attrs):
         print("Start :", tag)
-        self.handle_attrs((attrs))
+        self.handle_attrs(attrs)
 
     def handle_endtag(self, tag):
         print("End   :", tag)
