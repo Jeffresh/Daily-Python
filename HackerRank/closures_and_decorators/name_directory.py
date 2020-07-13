@@ -2,7 +2,8 @@
 #
 # people. Each person has a first name, last name, age and sex.
 # Print their names in a specific format sorted by their age in ascending order i.e.
-# the youngest person's name should be printed first. For two people of the same age, print them in the order of their input.
+# the youngest person's name should be printed first. For two people of the same age,
+# print them in the order of their input.
 #
 # For Henry Davids, the output should be:
 #
