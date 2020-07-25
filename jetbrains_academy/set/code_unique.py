@@ -10,6 +10,8 @@
 #
 # In this task, you're given the variables to work with: Belov, Smith, and Sarada.
 
+import json
+
 if __name__ == '__main__':
     # The following code is needed for us to check your answer, do not modify it, please.
 
