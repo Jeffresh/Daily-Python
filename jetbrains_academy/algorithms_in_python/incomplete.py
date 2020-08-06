@@ -5,6 +5,7 @@
 #
 # Don't forget to think about corner cases!
 
+
 def startswith_capital_counter(names):
     with_capital = 0
     for name in names:
