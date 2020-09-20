@@ -14,10 +14,8 @@
 
 
 if __name__ == '__main__':
-    sum_numbers = int(input())
-    numbers = [sum_numbers]
+    numbers = [int(input())]
 
-    while sum_numbers:
+    while sum(numbers):
         numbers.append(int(input()))
-        sum_numbers += numbers[-1]
     print(sum(map(lambda x: x ** 2, numbers)))
