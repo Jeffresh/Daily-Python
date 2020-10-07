@@ -6,7 +6,7 @@
 # Your program shouldn't read any input or call the function, just implement it.
 
 def say_hello(name):
-    print(f'Hello, {name}!') if name else print('Hello, Anonymous!')
+    print(f'Hello, {name or "Anonymous"}!')
 
 
 if __name__ == '__main__':
